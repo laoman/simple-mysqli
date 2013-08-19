@@ -450,7 +450,7 @@ class DB
         $sql = "UPDATE ". $table ." SET ";
         foreach( $variables as $field => $value )
         {
-            
+            $value = $this->filter( $value );
             $updates[] = "`$field` = '$value'";
         }
         $sql .= implode(', ', $updates);
